@@ -157,6 +157,8 @@ function setupInteraction(camera, canvas) {
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
 
+
+    canvas.style.touchAction = 'none';
     function getPointerPosition(event) {
         const rect = canvas.getBoundingClientRect();
         let clientX, clientY;
@@ -181,6 +183,7 @@ function setupInteraction(camera, canvas) {
 
     function onTouchStart(event) {
         event.preventDefault();
+        event.stopPropagation();
         getPointerPosition(event);
 
         if (checkCatIntersection()) {
@@ -190,11 +193,12 @@ function setupInteraction(camera, canvas) {
             eyes.visible = true;
 
             shortSound.currentTime = 0;
-            shortSound.play();
+            shortSound.play().catch(() => {});
         }
     }
 
     function onTouchEnds(event) {
+        event.preventDefault();
         if (isTouching) {
             isTouching = false;
             tailSwinging = false;
@@ -212,9 +216,9 @@ function setupInteraction(camera, canvas) {
     canvas.addEventListener('mouseup', onTouchEnds);
     canvas.addEventListener('mouseleave', onTouchEnds);
 
-    canvas.addEventListener('touchstart', onTouchStart);
-    canvas.addEventListener('touchend', onTouchEnds);
-    canvas.addEventListener('touchcancel', onTouchEnds);
+    canvas.addEventListener('touchstart', onTouchStart,{ passive: false });
+    canvas.addEventListener('touchend', onTouchEnds, { passive: false });
+    canvas.addEventListener('touchcancel', onTouchEnds, { passive: false });
 }
     export function updateSceneElements(){
         if(!tail) return;
