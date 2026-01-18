@@ -193,7 +193,7 @@ function setupInteraction(camera, canvas) {
             touchStartTime = Date.now();
 
             eyes.visible = true;
-            shortSound.volume = 0.3;
+            shortSound.volume = 0.1;
             shortSound.currentTime = 0;
             shortSound.play().catch(() => {});
             longSound.volume = 0.3;
