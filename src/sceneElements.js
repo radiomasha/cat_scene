@@ -144,7 +144,7 @@ export function initSceneElements(scene, camera, canvas) {
     
     //--- Audio---
     shortSound = new Audio('/short.wav');
-    shortSound.volume = 0.4;
+    shortSound.volume = 0.2;
     longSound = new Audio('/long.wav');
     longSound.volume = 0.4;
     longSound.loop = true;
