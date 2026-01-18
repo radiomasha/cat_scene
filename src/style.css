@@ -34,7 +34,7 @@ canvas {
 
 .bottom-ui {
   position: absolute;
-  bottom: 12px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255,255,255,0.8);

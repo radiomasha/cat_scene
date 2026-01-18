@@ -26,7 +26,7 @@ export function initSceneElements(scene, camera, canvas) {
         const imgWidth = tex.image.width;
         const imgHeight = tex.image.height;
         const aspectRatio = imgWidth / imgHeight;
-        const desiredHeight =8;
+        const desiredHeight =9;
         const desiredWidth = desiredHeight * aspectRatio;
         branch.scale.set(desiredWidth, desiredHeight, 1);
     });
@@ -37,7 +37,7 @@ export function initSceneElements(scene, camera, canvas) {
         toneMapped: false
     });
     branch = new THREE.Sprite(materialBranch);
-    branch.position.set(0, -0.5, -3);
+    branch.position.set(0, 0, -3);
     scene.add(branch);
 
     const texBlossom = loader.load('/blossom.png',(tex) => {
@@ -60,7 +60,7 @@ export function initSceneElements(scene, camera, canvas) {
     });
     blossom = new THREE.Sprite(materialBlossom);
 
-    blossom.position.set(-0.3, -0.5, -2);
+    blossom.position.set(-0.3, -0.75, -2);
 
     scene.add(blossom);
     
@@ -72,7 +72,7 @@ export function initSceneElements(scene, camera, canvas) {
         const aspectRatio = imgWidth / imgHeight;
 
         //
-        const desiredHeight =7;
+        const desiredHeight =8;
         const desiredWidth = desiredHeight * aspectRatio;
 
         cat.scale.set(desiredWidth, desiredHeight, 1);
@@ -87,7 +87,7 @@ export function initSceneElements(scene, camera, canvas) {
     });
     cat = new THREE.Sprite(materialCat);
 
-    cat.position.set(0, -0.75, -2.8);
+    cat.position.set(0, -0.25, -2.8);
 
     scene.add(cat);
 // add eyes
@@ -98,7 +98,7 @@ export function initSceneElements(scene, camera, canvas) {
         const aspectRatio = imgWidth / imgHeight;
 
         // keeping proportions
-        const desiredHeight =7;
+        const desiredHeight =8;
         const desiredWidth = desiredHeight * aspectRatio;
 
         eyes.scale.set(desiredWidth, desiredHeight, 1);
@@ -112,7 +112,7 @@ export function initSceneElements(scene, camera, canvas) {
         toneMapped: false
     });
     eyes = new THREE.Sprite(materialEyes);
-    eyes.position.set(0, -0.75, -2.78);
+    eyes.position.set(0, -0.25, -2.78);
     eyes.visible= false;
     scene.add(eyes);
 // add tail
@@ -123,7 +123,7 @@ export function initSceneElements(scene, camera, canvas) {
         const aspectRatio = imgWidth / imgHeight;
 
         // keeping proroportions
-        const desiredHeight =7;
+        const desiredHeight =8;
         const desiredWidth = desiredHeight * aspectRatio;
 
         tail.scale.set(desiredWidth, desiredHeight, 1);
@@ -138,7 +138,7 @@ export function initSceneElements(scene, camera, canvas) {
     });
     tail = new THREE.Sprite(materialTail);
     //tail.center.set(0.5, 1);
-    tail.position.set(0, -1, -3.01);
+    tail.position.set(0, -0.5, -3.01);
 
     scene.add(tail);
     
@@ -194,6 +194,10 @@ function setupInteraction(camera, canvas) {
 
             shortSound.currentTime = 0;
             shortSound.play().catch(() => {});
+            longSound.play().then(() => {
+                longSound.pause();
+                longSound.currentTime = 0;
+            }).catch(() => {});
         }
     }
 
