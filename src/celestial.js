@@ -9,14 +9,14 @@ export function initCelestials(scene) {
     const textureSun = loader.load('/sun.png');
     const materialSun = new THREE.SpriteMaterial({map: textureSun});
     sun = new THREE.Sprite(materialSun);
-    sun.scale.set(1, 1, 1);
+    sun.scale.set(2, 2, 1);
     sun.position.set(2,1,-4);
     scene.add(sun);
 
     const textureMoon = loader.load('/moon.png');
     const materialMoon = new THREE.SpriteMaterial({map: textureMoon});
     moon = new THREE.Sprite(materialMoon);
-    moon.scale.set(1, 1, 1);
+    moon.scale.set(2, 2, 1);
     moon.position.set(2,1,-4);
     scene.add(moon);
     
