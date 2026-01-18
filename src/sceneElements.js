@@ -37,7 +37,7 @@ export function initSceneElements(scene, camera, canvas) {
         toneMapped: false
     });
     branch = new THREE.Sprite(materialBranch);
-    branch.position.set(0, 0, -3);
+    branch.position.set(0, 0.5, -3);
     scene.add(branch);
 
     const texBlossom = loader.load('/blossom.png',(tex) => {
@@ -87,7 +87,7 @@ export function initSceneElements(scene, camera, canvas) {
     });
     cat = new THREE.Sprite(materialCat);
 
-    cat.position.set(0, -0.25, -2.8);
+    cat.position.set(0, 0.25, -2.8);
 
     scene.add(cat);
 // add eyes
@@ -112,7 +112,7 @@ export function initSceneElements(scene, camera, canvas) {
         toneMapped: false
     });
     eyes = new THREE.Sprite(materialEyes);
-    eyes.position.set(0, -0.25, -2.78);
+    eyes.position.set(0, 0.25, -2.78);
     eyes.visible= false;
     scene.add(eyes);
 // add tail
@@ -138,7 +138,7 @@ export function initSceneElements(scene, camera, canvas) {
     });
     tail = new THREE.Sprite(materialTail);
     //tail.center.set(0.5, 1);
-    tail.position.set(0, -0.5, -3.01);
+    tail.position.set(0, 0, -3.01);
 
     scene.add(tail);
     
